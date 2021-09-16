@@ -109,4 +109,25 @@ end
 
 class BookInStock
 # YOUR CODE HERE
+#Define a class BookInStock include isbn, price,
+  #constructor
+  def initialize(isbn, price)
+    @isbn = isbn    #string: begin iwht zero and can include hyphens
+    @price = price
+    #throw exception (ArgumentError) if ISBN# is empty string or priceis <= 0
+    if @isbn.length == 0 or @price <= 0
+      raise ArgumentError
+    end
+  end
+  
+  #include getters and setters
+  #instead of doing get and set separate, use arre_accessor for both 
+  attr_accessor :isbn
+  attr_accessor :price
+  
+  def price_as_string
+    #return the price of the book $00.00
+    return "$#{'%0.2f' % price}"
+  end
+  
 end
